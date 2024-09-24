@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6603604C2CA329C700AD262E /* CachingStore in Frameworks */ = {isa = PBXBuildFile; productRef = 6603604B2CA329C700AD262E /* CachingStore */; };
+		6603604F2CA329D800AD262E /* FakeStoreData in Frameworks */ = {isa = PBXBuildFile; productRef = 6603604E2CA329D800AD262E /* FakeStoreData */; };
+		660360522CA329EA00AD262E /* FakeStoreDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 660360512CA329EA00AD262E /* FakeStoreDomain */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6651C0152CA1804000E59F3C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,7 +35,31 @@
 		6651C01E2CA1804000E59F3C /* FakeStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FakeStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		660360482CA31FBD00AD262E /* Exceptions for "Packages" folder in "FakeStore" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CachingStore,
+				FakeStoreDomain,
+			);
+			target = 6651C0022CA1803F00E59F3C /* FakeStore */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		660360442CA31F8600AD262E /* Packages */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				660360482CA31FBD00AD262E /* Exceptions for "Packages" folder in "FakeStore" target */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		660360CB2CA3317B00AD262E /* TestPlans */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TestPlans;
+			sourceTree = "<group>";
+		};
 		6651C0052CA1803F00E59F3C /* FakeStore */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = FakeStore;
@@ -52,6 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660360522CA329EA00AD262E /* FakeStoreDomain in Frameworks */,
+				6603604C2CA329C700AD262E /* CachingStore in Frameworks */,
+				6603604F2CA329D800AD262E /* FakeStoreData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,8 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				6651C0052CA1803F00E59F3C /* FakeStore */,
+				660360442CA31F8600AD262E /* Packages */,
 				6651C0172CA1804000E59F3C /* FakeStoreTests */,
 				6651C0212CA1804000E59F3C /* FakeStoreUITests */,
+				660360CB2CA3317B00AD262E /* TestPlans */,
 				6651C0042CA1803F00E59F3C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,10 +143,15 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				660360442CA31F8600AD262E /* Packages */,
+				660360CB2CA3317B00AD262E /* TestPlans */,
 				6651C0052CA1803F00E59F3C /* FakeStore */,
 			);
 			name = FakeStore;
 			packageProductDependencies = (
+				6603604B2CA329C700AD262E /* CachingStore */,
+				6603604E2CA329D800AD262E /* FakeStoreData */,
+				660360512CA329EA00AD262E /* FakeStoreDomain */,
 			);
 			productName = FakeStore;
 			productReference = 6651C0032CA1803F00E59F3C /* FakeStore.app */;
@@ -196,6 +236,11 @@
 			);
 			mainGroup = 6651BFFA2CA1803F00E59F3C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6603604A2CA329C700AD262E /* XCLocalSwiftPackageReference "Packages/CachingStore" */,
+				6603604D2CA329D800AD262E /* XCLocalSwiftPackageReference "Packages/FakeStoreData" */,
+				660360502CA329EA00AD262E /* XCLocalSwiftPackageReference "Packages/FakeStoreDomain" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6651C0042CA1803F00E59F3C /* Products */;
 			projectDirPath = "";
@@ -599,6 +644,36 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		6603604A2CA329C700AD262E /* XCLocalSwiftPackageReference "Packages/CachingStore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/CachingStore;
+		};
+		6603604D2CA329D800AD262E /* XCLocalSwiftPackageReference "Packages/FakeStoreData" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/FakeStoreData;
+		};
+		660360502CA329EA00AD262E /* XCLocalSwiftPackageReference "Packages/FakeStoreDomain" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/FakeStoreDomain;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6603604B2CA329C700AD262E /* CachingStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CachingStore;
+		};
+		6603604E2CA329D800AD262E /* FakeStoreData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FakeStoreData;
+		};
+		660360512CA329EA00AD262E /* FakeStoreDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FakeStoreDomain;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6651BFFB2CA1803F00E59F3C /* Project object */;
 }

@@ -5,6 +5,7 @@
 //  Created by Adam Young on 24/09/2024.
 //
 
+import FakeStoreDomain
 import Foundation
 
 extension ProductCategoryGroup {
