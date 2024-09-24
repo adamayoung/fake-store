@@ -16,7 +16,10 @@ final class FetchAllCategories: FetchAllCategoriesUseCase {
     }
 
     func execute() async throws -> [ProductCategory] {
-        try await repository.categories()
+        let categories = try await repository.categories()
+            .sorted { $0.name.localizedCompare($1.name) == .orderedAscending }
+
+        return categories
     }
 
 }

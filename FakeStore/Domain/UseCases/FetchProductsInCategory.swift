@@ -17,6 +17,8 @@ final class FetchProductsInCategory: FetchProductsInCategoryUseCase {
 
     func execute(categoryID: ProductCategory.ID) async throws -> [Product] {
         let products = try await repository.products(for: categoryID)
+            .sorted { $0.title.localizedCompare($1.title) == .orderedAscending }
+
         return products
     }
 

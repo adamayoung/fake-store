@@ -11,14 +11,29 @@ struct CategoryListView: View {
 
     @State private var viewModel: CategoryListViewModel
 
+    private let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+
     init(viewModel: CategoryListViewModel) {
         self._viewModel = State(initialValue: viewModel)
     }
 
     var body: some View {
-        List(viewModel.categories) { category in
-            NavigationLink(value: category) {
-                Text(verbatim: category.name)
+        List {
+            Section {
+                ForEach(viewModel.categories) { category in
+                    NavigationLink(value: StoreRoute.categoryProductList(category)) {
+                        Label(category.name, systemImage: category.imageName)
+                    }
+                }
+            }
+
+            Section {
+                NavigationLink(value: StoreRoute.allProducts) {
+                    Label("ALL_PRODUCTS", systemImage: "shippingbox")
+                }
             }
         }
         .task {

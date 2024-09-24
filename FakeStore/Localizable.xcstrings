@@ -34,6 +34,16 @@
         }
       }
     },
+    "ALL_PRODUCTS" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Products"
+          }
+        }
+      }
+    },
     "BUY_NOW" : {
       "localizations" : {
         "en" : {
@@ -160,6 +170,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Product Details"
+          }
+        }
+      }
+    },
+    "PRODUCTS" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Products"
           }
         }
       }

@@ -1,5 +1,5 @@
 //
-//  ProductsListViewModel.swift
+//  CategoryProductListViewModel.swift
 //  FakeStore
 //
 //  Created by Adam Young on 23/09/2024.
@@ -10,7 +10,7 @@ import Observation
 
 @Observable
 @MainActor
-final class ProductsListViewModel {
+final class CategoryProductListViewModel {
 
     struct Dependencies: Sendable {
         var fetchProductsInCategory: @Sendable (ProductCategory.ID) async throws -> [Product]
@@ -40,7 +40,7 @@ final class ProductsListViewModel {
 
 }
 
-extension ProductsListViewModel.Dependencies {
+extension CategoryProductListViewModel.Dependencies {
 
     static var mock: Self {
         .init(

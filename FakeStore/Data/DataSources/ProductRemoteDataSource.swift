@@ -9,6 +9,8 @@ import Foundation
 
 protocol ProductRemoteDataSource {
 
+    func products() async throws -> [Product]
+
     func products(for categoryID: ProductCategory.ID) async throws -> [Product]
 
     func product(withID id: Product.ID) async throws -> Product?

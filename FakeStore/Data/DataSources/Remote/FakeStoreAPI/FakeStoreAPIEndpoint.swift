@@ -11,6 +11,7 @@ enum FakeStoreAPIEndpoint {
 
     case categories
 
+    case products
     case productsInCategory(categoryID: String)
     case product(id: Int)
 
@@ -30,6 +31,10 @@ extension FakeStoreAPIEndpoint {
             Self.baseURL
                 .appendingPathComponent("products")
                 .appendingPathComponent("categories")
+
+        case .products:
+            Self.baseURL
+                .appendingPathComponent("products")
 
         case let .productsInCategory(categoryID):
             Self.baseURL

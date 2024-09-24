@@ -20,6 +20,17 @@ final class ProductDefaultRepository: ProductRepository {
         self.cacheDataSource = cacheDataSource
     }
 
+    func products() async throws -> [Product] {
+        if let cacheProducts = await cacheDataSource.products() {
+            return cacheProducts
+        }
+
+        let products = try await remoteDataSource.products()
+        await cacheDataSource.setProducts(products)
+
+        return products
+    }
+
     func products(for categoryID: ProductCategory.ID) async throws -> [Product] {
         if let cacheProducts = await cacheDataSource.products(for: categoryID) {
             return cacheProducts

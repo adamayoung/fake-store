@@ -10,31 +10,27 @@ import SwiftUI
 struct MainTabView: View {
 
     @State private var customization = TabViewCustomization()
+    @State var tabSelection = 0
 
     @Environment(Cart.self)
     private var cart
 
     var body: some View {
         TabView {
-            Tab {
-                CatalogueNavigationView()
-            } label: {
-                Label("STORE", systemImage: "storefront")
+            Tab("STORE", systemImage: "storefront") {
+                StoreNavigationView(
+                    viewModel: StoreNavigationViewModel(dependencies: DIContainer.shared.storeNavigation())
+                )
             }
             .customizationID("fakestore.tab.store")
 
-            Tab {
+            Tab("CART", systemImage: "cart") {
                 CartNavigationView()
-            } label: {
-                Label("CART", systemImage: "cart")
             }
-            .badge(cart.itemCount)
             .customizationID("fakestore.tab.cart")
 
-            Tab {
+            Tab("ACCOUNT", systemImage: "person.crop.circle") {
                 AccountNavigationView()
-            } label: {
-                Label("ACCOUNT", systemImage: "person.crop.circle")
             }
             .customizationID("fakestore.tab.account")
         }

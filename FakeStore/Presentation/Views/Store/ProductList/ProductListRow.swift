@@ -1,5 +1,5 @@
 //
-//  ProductRow.swift
+//  ProductListRow.swift
 //  FakeStore
 //
 //  Created by Adam Young on 23/09/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProductRow: View {
+struct ProductListRow: View {
 
     var product: Product
 
@@ -45,6 +45,6 @@ struct ProductRow: View {
 
 #Preview {
     List {
-        ProductRow(product: .mock)
+        ProductListRow(product: .mock)
     }
 }

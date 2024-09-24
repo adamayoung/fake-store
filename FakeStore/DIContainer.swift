@@ -35,6 +35,16 @@ extension DIContainer {
 
 extension DIContainer {
 
+    func storeNavigation() -> StoreNavigationViewModel.Dependencies {
+        let searchProductsUseCase = searchProductsUseCase()
+
+        return StoreNavigationViewModel.Dependencies(
+            searchProducts: { query in
+                try await searchProductsUseCase.execute(query: query)
+            }
+        )
+    }
+
     func categoryList() -> CategoryListViewModel.Dependencies {
         let fetchCategoriesUseCase = fetchAllCategoriesUseCase()
 
@@ -45,10 +55,20 @@ extension DIContainer {
         )
     }
 
-    func productList() -> ProductsListViewModel.Dependencies {
+    func productList() -> ProductListViewModel.Dependencies {
+        let fetchAllProductsByCategoryUseCase = fetchAllProductsByCategoryUseCase()
+
+        return ProductListViewModel.Dependencies(
+            fetchProductsByCategory: {
+                try await fetchAllProductsByCategoryUseCase.execute()
+            }
+        )
+    }
+
+    func categoryProductList() -> CategoryProductListViewModel.Dependencies {
         let fetchProductsInCategoryUseCase = fetchProductInCategoryUseCase()
 
-        return ProductsListViewModel.Dependencies(
+        return CategoryProductListViewModel.Dependencies(
             fetchProductsInCategory: { categoryID in
                 try await fetchProductsInCategoryUseCase.execute(categoryID: categoryID)
             }
@@ -68,6 +88,18 @@ extension DIContainer {
 }
 
 extension DIContainer {
+
+    private func fetchAllProductsByCategoryUseCase() -> some FetchAllProductsByCategoryUseCase {
+        let repository = productRepository()
+
+        return FetchAllProductsByCategory(repository: repository)
+    }
+
+    private func searchProductsUseCase() -> some SearchProductsUseCase {
+        let repository = productRepository()
+
+        return SearchProducts(repository: repository)
+    }
 
     private func fetchProductInCategoryUseCase() -> some FetchProductsInCategoryUseCase {
         let repository = productRepository()

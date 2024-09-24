@@ -9,6 +9,10 @@ import Foundation
 
 protocol ProductCacheDataSource {
 
+    func products() async -> [Product]?
+
+    func setProducts(_ products: [Product]) async
+
     func products(for categoryID: ProductCategory.ID) async -> [Product]?
 
     func setProducts(_ products: [Product], for categoryID: ProductCategory.ID) async

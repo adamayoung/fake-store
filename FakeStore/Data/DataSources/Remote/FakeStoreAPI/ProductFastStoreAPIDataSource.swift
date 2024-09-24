@@ -15,6 +15,16 @@ final class ProductFastStoreAPIDataSource: ProductRemoteDataSource {
         self.urlSession = urlSession
     }
 
+    func products() async throws -> [Product] {
+        let url = FakeStoreAPIEndpoint.products.url
+        let (data, _) = try await urlSession.data(from: url)
+        let productDataModels = try JSONDecoder().decode([ProductDataModel].self, from: data)
+
+        let products = productDataModels.map(ProductMapper.map)
+
+        return products
+    }
+
     func products(for categoryID: ProductCategory.ID) async throws -> [Product] {
         let url = FakeStoreAPIEndpoint.productsInCategory(categoryID: categoryID).url
         let (data, _) = try await urlSession.data(from: url)

@@ -15,6 +15,17 @@ final class ProductCacheStoreDataSource: ProductCacheDataSource {
         self.cache = cache
     }
 
+    func products() async -> [Product]? {
+        await cache.get(forKey: CacheKey.products)
+    }
+
+    func setProducts(_ products: [Product]) async {
+        await cache.set(products, forKey: CacheKey.products)
+        for product in products {
+            await setProduct(product, withID: product.id)
+        }
+    }
+
     func products(for categoryID: ProductCategory.ID) async -> [Product]? {
         await cache.get(forKey: CacheKey.products(forCategory: categoryID))
     }
@@ -39,6 +50,10 @@ final class ProductCacheStoreDataSource: ProductCacheDataSource {
 extension ProductCacheStoreDataSource {
 
     private enum CacheKey {
+
+        static var products: String {
+            "products"
+        }
 
         static func products(forCategory categoryID: ProductCategory.ID) -> String {
             "products-category-\(categoryID)"

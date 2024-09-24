@@ -10,13 +10,25 @@ import Foundation
 extension ProductCategory {
 
     static var mock: Self {
-        ProductCategory(id: "men's clothing", name: "Men's clothing")
+        ProductCategory(
+            id: "men's clothing",
+            name: "Men's clothing",
+            imageName: "tshirt.fill"
+        )
     }
 
     static var mocks: [Self] {
         [
-            ProductCategory(id: "men's Clothes", name: "Men's Clothes"),
-            ProductCategory(id: "jewelery", name: "Jewelery")
+            ProductCategory(
+                id: "men's Clothes",
+                name: "Men's Clothes",
+                imageName: "tshirt.fill"
+            ),
+            ProductCategory(
+                id: "jewelery",
+                name: "Jewelery",
+                imageName: "suit.diamond.fill"
+            )
         ]
     }
 

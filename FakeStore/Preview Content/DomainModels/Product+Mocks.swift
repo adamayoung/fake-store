@@ -21,7 +21,8 @@ extension Product {
                 + " or Christmas Day.",
             category: ProductCategory(
                 id: "men's clothing",
-                name: "Men's clothing"
+                name: "Men's clothing",
+                imageName: "tshirt.fill"
             ),
             imageURL: URL(string: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg")!,
             rating: Rating(
@@ -43,7 +44,8 @@ extension Product {
                     + " this thanksgiving or Christmas Day.",
                 category: ProductCategory(
                     id: "men's clothing",
-                    name: "Men's clothing"
+                    name: "Men's clothing",
+                    imageName: "tshirt.fill"
                 ),
                 imageURL: URL(string: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg")!,
                 rating: Rating(
@@ -60,7 +62,8 @@ extension Product {
                     + " on the product description.",
                 category: ProductCategory(
                     id: "men's clothing",
-                    name: "Men's clothing"
+                    name: "Men's clothing",
+                    imageName: "tshirt.fill"
                 ),
                 imageURL: URL(string: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg")!,
                 rating: Rating(

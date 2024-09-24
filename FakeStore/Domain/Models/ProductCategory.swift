@@ -11,5 +11,6 @@ struct ProductCategory: Identifiable, Sendable, Hashable {
 
     let id: String
     let name: String
+    let imageName: String
 
 }
